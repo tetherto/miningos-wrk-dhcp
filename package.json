@@ -1,0 +1,37 @@
+{
+    "name": "miningos-wrk-dhcp",
+    "version": "0.1.0",
+    "description": "dhcp server",
+    "main": "worker.js",
+    "keywords": [
+        "tether"
+    ],
+    "author": "Tether",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tetherto/miningos-wrk-dhcp.git"
+    },
+    "engine": {
+        "node": ">=20.0"
+    },
+    "scripts": {
+        "lint": "standard",
+        "lint:fix": "standard --fix",
+        "test": "npm run lint && npm run test:unit",
+        "test:unit": "brittle tests/*.js"
+    },
+    "dependencies": {
+        "bfx-facs-http": "git+https://github.com/bitfinexcom/bfx-facs-http",
+        "bfx-svc-boot-js": "git+https://github.com/bitfinexcom/bfx-svc-boot-js",
+        "bfx-wrk-base": "git+https://github.com/bitfinexcom/bfx-wrk-base",
+        "fastify": "4.29.1",
+        "svc-facs-kea": "git+https://github.com/tetherto/svc-facs-dhcp-kea.git",
+        "hp-svc-facs-net": "git+https://github.com/tetherto/hp-svc-facs-net.git",
+        "hp-svc-facs-store": "git+https://github.com/tetherto/hp-svc-facs-store.git"
+    },
+    "devDependencies": {
+        "brittle": "3.16.3",
+        "standard": "17.1.0"
+    }
+}
