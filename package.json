@@ -1,6 +1,6 @@
 {
     "name": "miningos-wrk-dhcp",
-    "version": "0.1.0",
+    "version": "0.0.1",
     "description": "dhcp server",
     "main": "worker.js",
     "keywords": [
@@ -12,8 +12,21 @@
         "type": "git",
         "url": "git+https://github.com/tetherto/miningos-wrk-dhcp.git"
     },
-    "engine": {
-        "node": ">=20.0"
+    "homepage": "https://github.com/tetherto/miningos-wrk-dhcp#readme",
+    "bugs": {
+        "url": "https://github.com/tetherto/miningos-wrk-dhcp/issues"
+    },
+    "engines": {
+        "node": ">=20"
+    },
+    "files": [
+        "worker.js",
+        "workers/",
+        "mock/"
+    ],
+    "type": "commonjs",
+    "bin": {
+        "miningos-wrk-dhcp": "worker.js"
     },
     "scripts": {
         "lint": "standard",
