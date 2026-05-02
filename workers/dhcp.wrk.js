@@ -1,7 +1,7 @@
 'use strict'
 
 const async = require('async')
-const WrkBase = require('bfx-wrk-base')
+const WrkBase = require('@bitfinex/bfx-wrk-base')
 const debug = require('debug')('dhcp:wrk')
 
 class WrkDHCP extends WrkBase {
@@ -16,15 +16,15 @@ class WrkDHCP extends WrkBase {
   init () {
     super.init()
     this.setInitFacs([
-      ['fac', 'hp-svc-facs-store', 's0', 's0', {
+      ['fac', '@tetherto/hp-svc-facs-store', 's0', 's0', {
         storeDir: `store/${this.ctx.cluster}`
       }, -5],
-      ['fac', 'hp-svc-facs-net', 'r0', 'r0', () => {
+      ['fac', '@tetherto/hp-svc-facs-net', 'r0', 'r0', () => {
         return {
           fac_store: this.store_s0
         }
       }, 0],
-      ['fac', 'bfx-facs-http', 'c0', 'c0', { timeout: 30000, debug: false }, 0],
+      ['fac', '@bitfinex/bfx-facs-http', 'c0', 'c0', { timeout: 30000, debug: false }, 0],
       ['fac', 'svc-facs-kea', 'k0', 'k0', () => {
         return {
           fac_http: this.http_c0
