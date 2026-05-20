@@ -148,6 +148,66 @@ test('mock Kea: invalid service returns 400', async function (t) {
   await app.close()
 })
 
+test('default initial state exposes cleanup', function (t) {
+  const { cleanup } = loadInitialState({
+    startTime: Date.now(),
+    host: '127.0.0.1',
+    port: 0
+  })
+  t.is(typeof cleanup, 'function')
+  cleanup()
+})
+
+test('mock Kea: lease4-add rejects conflicting lease', async function (t) {
+  const app = buildApp()
+  await app.ready()
+  const existing = {
+    'hw-address': '11:22:33:44:55:66',
+    'ip-address': '10.182.0.10',
+    'subnet-id': 1
+  }
+  await app.inject({
+    method: 'POST',
+    url: '/',
+    payload: {
+      service: ['dhcp4'],
+      command: 'lease4-add',
+      arguments: existing
+    }
+  })
+  const conflictRes = await app.inject({
+    method: 'POST',
+    url: '/',
+    payload: {
+      service: ['dhcp4'],
+      command: 'lease4-add',
+      arguments: {
+        'hw-address': existing['hw-address'],
+        'ip-address': '10.182.0.99',
+        'subnet-id': 2
+      }
+    }
+  })
+  t.is(conflictRes.statusCode, 400)
+  await app.close()
+})
+
+test('mock Kea: lease4-del missing lease returns 400', async function (t) {
+  const app = buildApp()
+  await app.ready()
+  const res = await app.inject({
+    method: 'POST',
+    url: '/',
+    payload: {
+      service: ['dhcp4'],
+      command: 'lease4-del',
+      arguments: { 'hw-address': 'de:ad:be:ef:00:01' }
+    }
+  })
+  t.is(res.statusCode, 400)
+  await app.close()
+})
+
 test('mock Kea: invalid command returns 400', async function (t) {
   const app = buildApp()
   await app.ready()

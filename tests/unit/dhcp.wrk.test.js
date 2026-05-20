@@ -83,3 +83,57 @@ test('WrkDHCP module exports the worker class', function (t) {
   t.is(typeof WrkDHCP, 'function')
   t.ok(WrkDHCP.name === 'WrkDHCP' || WrkDHCP.prototype.init)
 })
+
+test('WrkDHCP#init registers store, net, http, and kea facilities', function (t) {
+  const parentProto = Object.getPrototypeOf(WrkDHCP.prototype)
+  const origInit = parentProto.init
+  parentProto.init = function () {}
+
+  const wrk = Object.create(WrkDHCP.prototype)
+  wrk.ctx = { cluster: 'unit-test' }
+  const facs = []
+  wrk.setInitFacs = (list) => { facs.push(...list) }
+
+  try {
+    wrk.init()
+    t.ok(facs.length >= 4)
+    t.ok(facs.some((f) => f[2] === 'k0'))
+    t.ok(facs.some((f) => f[2] === 's0'))
+    t.ok(facs.some((f) => f[2] === 'r0'))
+    t.ok(facs.some((f) => f[2] === 'c0'))
+  } finally {
+    parentProto.init = origInit
+  }
+})
+
+test('WrkDHCP#_start wires RPC handlers and saves public key', async function (t) {
+  const parentProto = Object.getPrototypeOf(WrkDHCP.prototype)
+  const origStart = parentProto._start
+  parentProto._start = (cb) => cb()
+
+  const wrk = Object.create(WrkDHCP.prototype)
+  wrk.status = {}
+  wrk.saveStatus = () => {}
+  const handlers = {}
+  wrk.net_r0 = {
+    async startRpcServer () {},
+    rpcServer: {
+      publicKey: Buffer.alloc(32, 1),
+      respond (name, fn) { handlers[name] = fn }
+    },
+    handleReply: async (method, req) => ({ method, req })
+  }
+
+  try {
+    await new Promise((resolve, reject) => {
+      wrk._start((err) => (err ? reject(err) : resolve()))
+    })
+    t.ok(handlers.echo)
+    t.is(handlers.echo('ping'), 'ping')
+    t.ok(handlers.setIp)
+    t.ok(handlers.getConf)
+    t.ok(wrk.status.rpcPublicKey)
+  } finally {
+    parentProto._start = origStart
+  }
+})
