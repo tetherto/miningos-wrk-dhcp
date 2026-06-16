@@ -177,151 +177,244 @@ module.exports = function (ctx) {
             'store-extended-info': false,
             subnet4: [
               {
-                '4o6-interface': '',
-                '4o6-interface-id': '',
-                '4o6-subnet': '',
-                allocator: 'iterative',
-                'calculate-tee-times': false,
-                id: 1,
-                'max-valid-lifetime': 4000,
-                'min-valid-lifetime': 4000,
-                'option-data': [],
+                id: 129,
+                subnet: '10.72.129.0/24',
                 pools: [
                   {
-                    'option-data': [],
-                    pool: '10.182.0.11-10.182.0.15'
-                  },
-                  {
-                    'option-data': [],
-                    pool: '10.182.0.115-10.182.0.130'
+                    pool: '10.72.129.30 - 10.72.129.250'
                   }
                 ],
-                'rebind-timer': 2000,
-                relay: {
-                  'ip-addresses': []
-                },
-                'renew-timer': 1000,
-                reservations: [],
-                'store-extended-info': false,
-                subnet: '10.182.0.0/24',
-                't1-percent': 0.5,
-                't2-percent': 0.875,
-                'valid-lifetime': 4000
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.129.1'
+                  }
+                ]
               },
               {
-                '4o6-interface': '',
-                '4o6-interface-id': '',
-                '4o6-subnet': '',
-                allocator: 'iterative',
-                'calculate-tee-times': false,
-                id: 2,
-                'max-valid-lifetime': 4000,
-                'min-valid-lifetime': 4000,
-                'option-data': [],
-                pools: [],
-                'rebind-timer': 2000,
-                relay: {
-                  'ip-addresses': []
-                },
-                'renew-timer': 1000,
-                reservations: [],
-                'store-extended-info': false,
-                subnet: '10.10.0.0/24',
-                't1-percent': 0.5,
-                't2-percent': 0.875,
-                'valid-lifetime': 4000
+                id: 130,
+                subnet: '10.72.130.0/24',
+                pools: [
+                  {
+                    pool: '10.72.130.30 - 10.72.130.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.130.1'
+                  }
+                ]
               },
               {
-                '4o6-interface': '',
-                '4o6-interface-id': '',
-                '4o6-subnet': '',
-                allocator: 'iterative',
-                'calculate-tee-times': false,
-                id: 3,
-                'max-valid-lifetime': 4000,
-                'min-valid-lifetime': 4000,
-                'option-data': [],
-                pools: [],
-                'rebind-timer': 2000,
-                relay: {
-                  'ip-addresses': []
-                },
-                'renew-timer': 1000,
-                reservations: [],
-                'store-extended-info': false,
-                subnet: '15.15.0.0/24',
-                't1-percent': 0.5,
-                't2-percent': 0.875,
-                'valid-lifetime': 4000
+                id: 131,
+                subnet: '10.72.131.0/24',
+                pools: [
+                  {
+                    pool: '10.72.131.30 - 10.72.131.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.131.1'
+                  }
+                ]
               },
               {
-                '4o6-interface': '',
-                '4o6-interface-id': '',
-                '4o6-subnet': '',
-                allocator: 'iterative',
-                'calculate-tee-times': false,
-                id: 4,
-                'max-valid-lifetime': 4000,
-                'min-valid-lifetime': 4000,
-                'option-data': [],
-                pools: [],
-                'rebind-timer': 2000,
-                relay: {
-                  'ip-addresses': []
-                },
-                'renew-timer': 1000,
-                reservations: [],
-                'store-extended-info': false,
-                subnet: '100.100.0.0/24',
-                't1-percent': 0.5,
-                't2-percent': 0.875,
-                'valid-lifetime': 4000
+                id: 132,
+                subnet: '10.72.132.0/24',
+                pools: [
+                  {
+                    pool: '10.72.132.30 - 10.72.132.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.132.1'
+                  }
+                ]
               },
               {
-                '4o6-interface': '',
-                '4o6-interface-id': '',
-                '4o6-subnet': '',
-                allocator: 'iterative',
-                'calculate-tee-times': false,
-                id: 5,
-                'max-valid-lifetime': 4000,
-                'min-valid-lifetime': 4000,
-                'option-data': [],
-                pools: [],
-                'rebind-timer': 2000,
-                relay: {
-                  'ip-addresses': []
-                },
-                'renew-timer': 1000,
-                reservations: [],
-                'store-extended-info': false,
-                subnet: '127.0.0.0/24',
-                't1-percent': 0.5,
-                't2-percent': 0.875,
-                'valid-lifetime': 4000
+                id: 133,
+                subnet: '10.72.133.0/24',
+                pools: [
+                  {
+                    pool: '10.72.133.30 - 10.72.133.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.133.1'
+                  }
+                ]
               },
               {
-                '4o6-interface': '',
-                '4o6-interface-id': '',
-                '4o6-subnet': '',
-                allocator: 'iterative',
-                'calculate-tee-times': false,
-                id: 6,
-                'max-valid-lifetime': 4000,
-                'min-valid-lifetime': 4000,
-                'option-data': [],
-                pools: [],
-                'rebind-timer': 2000,
-                relay: {
-                  'ip-addresses': []
-                },
-                'renew-timer': 1000,
-                reservations: [],
-                'store-extended-info': false,
-                subnet: '127.0.0.0/23',
-                't1-percent': 0.5,
-                't2-percent': 0.875,
-                'valid-lifetime': 4000
+                id: 134,
+                subnet: '10.72.134.0/24',
+                pools: [
+                  {
+                    pool: '10.72.134.30 - 10.72.134.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.134.1'
+                  }
+                ]
+              },
+              {
+                id: 135,
+                subnet: '10.72.135.0/24',
+                pools: [
+                  {
+                    pool: '10.72.135.30 - 10.72.135.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.135.1'
+                  }
+                ]
+              },
+              {
+                id: 136,
+                subnet: '10.72.136.0/24',
+                pools: [
+                  {
+                    pool: '10.72.136.30 - 10.72.136.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.136.1'
+                  }
+                ]
+              },
+              {
+                id: 137,
+                subnet: '10.72.137.0/24',
+                pools: [
+                  {
+                    pool: '10.72.137.30 - 10.72.137.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.137.1'
+                  }
+                ]
+              },
+              {
+                id: 138,
+                subnet: '10.72.138.0/24',
+                pools: [
+                  {
+                    pool: '10.72.138.30 - 10.72.138.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.138.1'
+                  }
+                ]
+              },
+              {
+                id: 139,
+                subnet: '10.72.139.0/24',
+                pools: [
+                  {
+                    pool: '10.72.139.30 - 10.72.139.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.139.1'
+                  }
+                ]
+              },
+              {
+                id: 140,
+                subnet: '10.72.140.0/24',
+                pools: [
+                  {
+                    pool: '10.72.140.30 - 10.72.140.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.140.1'
+                  }
+                ]
+              },
+              {
+                id: 141,
+                subnet: '10.72.141.0/24',
+                pools: [
+                  {
+                    pool: '10.72.141.30 - 10.72.141.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.141.1'
+                  }
+                ]
+              },
+              {
+                id: 142,
+                subnet: '10.72.142.0/24',
+                pools: [
+                  {
+                    pool: '10.72.142.30 - 10.72.142.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.142.1'
+                  }
+                ]
+              },
+              {
+                id: 143,
+                subnet: '10.72.143.0/24',
+                pools: [
+                  {
+                    pool: '10.72.143.30 - 10.72.143.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.143.1'
+                  }
+                ]
+              },
+              {
+                id: 144,
+                subnet: '10.72.144.0/24',
+                pools: [
+                  {
+                    pool: '10.72.144.30 - 10.72.144.250'
+                  }
+                ],
+                'option-data': [
+                  {
+                    name: 'routers',
+                    data: '10.72.144.1'
+                  }
+                ]
               }
             ],
             't1-percent': 0.5,
