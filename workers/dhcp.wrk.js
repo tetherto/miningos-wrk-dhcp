@@ -25,7 +25,7 @@ class WrkDHCP extends WrkBase {
         }
       }, 0],
       ['fac', '@bitfinex/bfx-facs-http', 'c0', 'c0', { timeout: 30000, debug: false }, 0],
-      ['fac', 'svc-facs-kea', 'k0', 'k0', () => {
+      ['fac', '@tetherto/svc-facs-dhcp-kea', 'k0', 'k0', () => {
         return {
           fac_http: this.http_c0
         }
@@ -34,36 +34,36 @@ class WrkDHCP extends WrkBase {
   }
 
   async setIps (req) {
-    return await this.kea_k0.setIps(req)
+    return await this.dhcpKea_k0.setIps(req)
   }
 
   async setIp (req) {
-    return await this.kea_k0.setIp(req)
+    return await this.dhcpKea_k0.setIp(req)
   }
 
   async releaseIp (req) {
-    return await this.kea_k0.releaseIp(req)
+    return await this.dhcpKea_k0.releaseIp(req)
   }
 
   async releaseIps (req) {
-    return await this.kea_k0.releaseIps(req)
+    return await this.dhcpKea_k0.releaseIps(req)
   }
 
   async getLeases () {
-    return await this.kea_k0.getLeases()
+    return await this.dhcpKea_k0.getLeases()
   }
 
   async getConf () {
-    await this.kea_k0.fetchConf()
-    return this.kea_k0.serverConf
+    await this.dhcpKea_k0.fetchConf()
+    return this.dhcpKea_k0.serverConf
   }
 
   async exportLeases () {
-    return await this.kea_k0.exportLeases()
+    return await this.dhcpKea_k0.exportLeases()
   }
 
   async importLeases (req) {
-    return await this.kea_k0.importLeases(req)
+    return await this.dhcpKea_k0.importLeases(req)
   }
 
   _start (cb) {

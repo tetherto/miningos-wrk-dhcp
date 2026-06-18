@@ -6,7 +6,7 @@ const WrkDHCP = require(path.join(__dirname, '../../workers/dhcp.wrk.js'))
 
 function wrkWithKea (kea) {
   const wrk = Object.create(WrkDHCP.prototype)
-  wrk.kea_k0 = kea
+  wrk.dhcpKea_k0 = kea
   return wrk
 }
 
